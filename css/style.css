@@ -1,5 +1,7 @@
 /* modern css reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -31,7 +33,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--heading-color);
     font-weight: 700;
     margin-bottom: 1rem;
@@ -127,7 +134,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     height: 80px;
     display: flex;
     align-items: center;
@@ -176,7 +183,9 @@ header .container {
 .hero-content {
     display: flex;
     align-items: center;
+    /* Vertically centered */
     justify-content: space-between;
+    /* Spread across */
 }
 
 .hero-text {
@@ -209,12 +218,15 @@ header .container {
     flex: 1;
     display: flex;
     justify-content: center;
+    /* Horizontally centered in its flex space */
 }
 
 #profile-img {
     width: 300px;
     height: 300px;
     object-fit: cover;
+    object-position: center center;
+    /* Ensures the subject is centered */
     border-radius: 50%;
     border: 3px solid var(--primary-color);
     box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
@@ -352,11 +364,27 @@ header .container {
     transform: translateY(-5px);
 }
 
-.project-img img {
-    width: 100%;
+.project-img {
     height: 200px;
-    object-fit: cover;
+    background: var(--bg-color);
+    /* Slightly different from card bg */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
+
+.icon-placeholder i {
+    font-size: 4rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.project-card:hover .icon-placeholder i {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Removed .project-img img styles as we are using icons */
 
 .project-info {
     padding: 1.5rem;
@@ -457,7 +485,8 @@ footer {
 /* Responsive */
 @media screen and (max-width: 768px) {
     .nav-links {
-        display: none; /* Add JS toggle later */
+        display: none;
+        /* Add JS toggle later */
     }
 
     .hero-content {
